@@ -22,7 +22,7 @@ sub check {
 	print "Checking " . $_[0] . " on port " . $_[1] . " (exit code " . $_[2] . ") ...  \n\n" ;
         my $string_to_check = "HTTP\/1.0 ". $_[2];
 	my $sock = new IO::Socket::INET (
-                                  PeerAddr => "hqlprtcdrgeo1.hq.un.fao.org",
+                                  PeerAddr => "127.0.0.1",
                                   PeerPort => $_[1],
                                   Proto => 'tcp',
                                  );
@@ -49,8 +49,8 @@ GetOptions ('port=s' => \$port,
 if ($help)
  {
 	print "\n\n";
-	print "Usage: " . $script_name . "  --port svc1:p1:exit_code,svc2:p2,exit_code   --severity= CRITICAL ||  WARNING  ...  \n\n";
-	print "Example:  " . $script_name . "  --port tomcat1:48081:500,tomcat2:48082:500 --severity CRITICAL\n\n";
+	print "Usage: " . $script_name . "  --port svc1:p1:exit_code,svc2:p2,exit_code   --severity= CRITICAL ||  WARNING || UNKNOWN ...  \n\n";
+ 	print "Example:  " . $script_name . "  --port tomcat1:48081:500,tomcat2:48082:500 --severity CRITICAL\n\n";
         print "\n\n";
  }
 
