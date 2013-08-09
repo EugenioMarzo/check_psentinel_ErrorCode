@@ -18,8 +18,8 @@ $port;
 $severity='';
 
 sub check {
-	print "\n\n";
-	print "Checking " . $_[0] . " on port " . $_[1] . " (exit code " . $_[2] . ") ...  \n\n" ;
+	#print "\n\n";
+	#print "Checking " . $_[0] . " on port " . $_[1] . " (exit code " . $_[2] . ") ...  \n\n" ;
         my $string_to_check = "HTTP\/1.0 ". $_[2];
 	my $sock = new IO::Socket::INET (
                                   PeerAddr => "127.0.0.1",
@@ -34,7 +34,7 @@ sub check {
        	close($sock);
         if ( $data =~ /$string_to_check/ ) 
            { 
-	      $EXIT_STRING = $EXIT_STRING . "\n" . "Psentinel returns " . $_[2] . " for " . $_[0] . "\n" ; }    
+	      $EXIT_STRING = $EXIT_STRING . " " . "Psentinel returns " . $_[2] . " for " . $_[0] . ";" ; }    
 }
 
 
